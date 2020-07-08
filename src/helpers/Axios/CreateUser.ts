@@ -13,6 +13,7 @@ export const createUserAxiosCall = async (user: IUser) => {
          <lastName xsi:type="xsd:string">${user.lastName}</lastName>
          <email xsi:type="xsd:string">${user.email}</email>
          <phone xsi:type="xsd:string">${user.phone}</phone>
+         <auth_token xsi:type="xsd:string">${process.env.SOAP_AUTH_TOKEN}</auth_token>
        </urn:createUser>
     </soapenv:Body>
  </soapenv:Envelope>

@@ -10,6 +10,7 @@ export const consultWalletAxiosCall = async (user: IUser) => {
      <urn:consultWallet soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
          <document xsi:type="xsd:string">${user.document}</document>
        <phone xsi:type="xsd:string">${user.phone}</phone>
+       <auth_token xsi:type="xsd:string">${process.env.SOAP_AUTH_TOKEN}</auth_token>
      </urn:consultWallet>
   </soapenv:Body>
 </soapenv:Envelope>`;

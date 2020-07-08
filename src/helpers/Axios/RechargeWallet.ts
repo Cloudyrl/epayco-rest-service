@@ -11,6 +11,7 @@ export const rechargeWalletAxiosCall = async (user: IUser, value: number) => {
         <document xsi:type="xsd:string">${user.document}</document>
         <phone xsi:type="xsd:string">${user.phone}</phone>
         <value xsi:type="xsd:string">${value}</value>
+        <auth_token xsi:type="xsd:string">${process.env.SOAP_AUTH_TOKEN}</auth_token>
      </urn:rechargeWallet>
   </soapenv:Body>
 </soapenv:Envelope>`;

@@ -11,6 +11,7 @@ export const createTransactionAxiosCall = async (user: IUser, value: number) => 
             <document xsi:type="xsd:string">${user.document}</document>
             <phone xsi:type="xsd:string">${user.phone}</phone>
             <value xsi:type="xsd:string">${value}</value>
+            <auth_token xsi:type="xsd:string">${process.env.SOAP_AUTH_TOKEN}</auth_token>
        </urn:createTransaction>
     </soapenv:Body>
  </soapenv:Envelope>
@@ -27,7 +28,6 @@ export const createTransactionAxiosCall = async (user: IUser, value: number) => 
       const message = jsonResponse["tns:message"]._text;
       return { session_id, message };
     } catch (error) {
-      console.log(error.response.status)
       throw error.response.data
         ? new ErrorHandler(
           error.response.status,

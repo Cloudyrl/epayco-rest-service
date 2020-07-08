@@ -1,4 +1,3 @@
-import { IUser } from "@models/UserModel";
 import axios from "axios";
 import { ErrorHandler } from "@helpers/ErrorHandler";
 const convert = require("xml-js");
@@ -9,6 +8,7 @@ export const confirmTransactionAxiosCall = async (session_id: string, token: str
     <soapenv:Body>
        <urn:confirmTransaction soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
            <session_id xsi:type="xsd:string">${session_id}</session_id>
+           <auth_token xsi:type="xsd:string">${process.env.SOAP_AUTH_TOKEN}</auth_token>
          <token xsi:type="xsd:string">${token}</token>
        </urn:confirmTransaction>
     </soapenv:Body>
@@ -25,7 +25,6 @@ export const confirmTransactionAxiosCall = async (session_id: string, token: str
       const message = jsonResponse["tns:message"]._text;
       return { message };
     } catch (error) {
-      console.log(error.response.status)
       throw error.response.data
         ? new ErrorHandler(
           error.response.status,

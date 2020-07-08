@@ -24,7 +24,6 @@ export const confirmTransactionCtrl = async (req : Request , res : Response , ne
         const session_id = req.headers['authorization']?.split(' ')[1]
         const token = req.body.token
         if (!session_id) throw new ErrorHandler(401,"unauthorized")
-        console.log(session_id)
         const data =  await confirmTransactionAxiosCall(session_id,token);
         handleSuccess(201, data.message, res, next, {message : data.message});
     }catch (e){
