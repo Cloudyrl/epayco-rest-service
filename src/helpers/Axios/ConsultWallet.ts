@@ -27,7 +27,7 @@ export const consultWalletAxiosCall = async (user: IUser) => {
   } catch (error) {
     throw error.response.data
       ? new ErrorHandler(
-          500,
+        error.response.status,
           convert.xml2js(error.response.data, {
             compact: true,
             ignoreComment: true,

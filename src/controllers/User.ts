@@ -26,7 +26,7 @@ export const rechargeWalletCtrl = async (req : Request , res : Response , next: 
         const data =  await rechargeWalletAxiosCall(user,value);
         handleSuccess(201, data.message , res, next, {balance : data.balance});
     }catch (e){
-        next(new ErrorHandler(500, e.message));
+        next();
     }
 }
 
@@ -39,6 +39,6 @@ export const consultWalletCtrl = async (req : Request , res : Response , next: N
         const data =  await consultWalletAxiosCall(user);
         handleSuccess(201, data.message , res, next, {balance : data.balance});
     }catch (e){
-        next(new ErrorHandler(500, e.message));
+        next();
     }
 }
