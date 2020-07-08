@@ -4,7 +4,7 @@ import { Router } from 'express';
 const router = Router();
 
 // Add sub-routes
-router.use('/');
+// router.use('/');
 
 // Export the base-router
 export default router;

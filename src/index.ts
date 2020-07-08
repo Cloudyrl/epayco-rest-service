@@ -4,9 +4,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 
 import express, { Request, Response, NextFunction } from "express";
-import { BAD_REQUEST } from "http-status-codes";
 import "express-async-errors";
-import mongoose from "mongoose";
 
 import BaseRouter from "./routes";
 import logger from "@shared/Logger";
@@ -48,20 +46,10 @@ app.use((err: ErrorHandler, req: Request, res: Response, next: NextFunction) => 
   handleError(err, res);
 });
 
-//Db connection
-mongoose
-  .connect(dbUrl, {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    const port = Number(process.env.PORT || 3000);
+const port = Number(process.env.PORT || 3000);
     app.listen(port, () => {
       logger.info("Express server started on port: " + port);
     });
-  })
-  .catch(() => console.log("database connection failed"));
 
 // Export express instance
 export default app;
