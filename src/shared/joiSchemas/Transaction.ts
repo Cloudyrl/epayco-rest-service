@@ -5,4 +5,9 @@ export const createTransactionSchema = Joi.object().keys({
     phone: Joi.string().required(),
     value: Joi.number().required()
 });
+
+export const confirmTransactionSchema = Joi.object().keys({
+    token: Joi.string().required()
+});
+  
   
