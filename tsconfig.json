@@ -13,20 +13,20 @@
     "target": "es6",
     "moduleResolution": "node",
     "paths": {
+      "@middlewares/*": [
+        "src/middlewares/*"
+      ],
       "@services/*": [
         "src/services/*"
       ],
       "@models/*": [
-        "src/db/models/*"
+        "src/models/*"
       ],
       "@shared/*": [
         "src/shared/*"
       ],
       "@controllers/*": [
         "src/controllers/*"
-      ],
-      "@db/*": [
-        "src/db/*"
       ],
       "@helpers/*": [
         "src/helpers/*"

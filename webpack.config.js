@@ -32,11 +32,11 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js'],
     alias: {
+      "@middlewares": path.resolve(__dirname, "src/middlewares/"),
       "@services": path.resolve(__dirname, "src/services/"),
-      "@models": path.resolve(__dirname, "src/db/models/"),
+      "@models": path.resolve(__dirname, "src/models/"),
       "@shared": path.resolve(__dirname, "src/shared/"),
       "@controllers": path.resolve(__dirname, "src/controllers/"),
-      "@db": path.resolve(__dirname, "src/db/"),
       "@helpers": path.resolve(__dirname, "src/helpers/")
     } 
   },
