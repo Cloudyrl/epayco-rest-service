@@ -13,3 +13,9 @@ export const rechargeWalletSchema = Joi.object().keys({
   phone: Joi.string().required(),
   value: Joi.number().required()
 });
+
+export const consultWalletSchema = Joi.object().keys({
+  document: Joi.string().required(),
+  phone: Joi.string().required()
+});
+
