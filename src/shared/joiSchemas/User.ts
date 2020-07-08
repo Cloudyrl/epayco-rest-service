@@ -6,5 +6,10 @@ export const createUserSchema = Joi.object().keys({
     lastName: Joi.string().required(),
     email: Joi.string().email().required(),
     phone: Joi.string().required(),
-  });
-  
+});
+
+export const rechargeWalletSchema = Joi.object().keys({
+  document: Joi.string().required(),
+  phone: Joi.string().required(),
+  value: Joi.number().required()
+});
