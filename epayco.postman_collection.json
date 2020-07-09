@@ -1,0 +1,367 @@
+{
+	"info": {
+		"_postman_id": "6f00b4bc-ce62-4c21-863a-7f7db924343d",
+		"name": "epayco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "soap",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "createUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:examples:helloservice\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:createUser soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      \t<document xsi:type=\"xsd:string\">272431855</document>\n        <name xsi:type=\"xsd:string\">User</name>\n        <lastName xsi:type=\"xsd:string\">LUser</lastName>\n        <email xsi:type=\"xsd:string\">user@example.com</email>\n        <phone xsi:type=\"xsd:string\">5435345</phone>\n        <auth_token xsi:type=\"xsd:string\">602d2391f57de22624a18ec83d478b70</auth_token>\n      </urn:createUser>\n   </soapenv:Body>\n</soapenv:Envelope>\n",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3002/soap/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3002",
+									"path": [
+										"soap",
+										"user"
+									]
+								},
+								"description": "### Headers\n\n| Name |  |\n| -------- | -------- |\n| Content-Type | text/xml |\n\n### Body Params\n\n| Attribute | Description | required? | unique? |\n| -------- | -------- | -------- |  -------- |\n| document | User document | yes | yes |\n| name | User First Name | yes | no |\n| lastName | User LastName | yes | no |\n| email | User email | yes | yes |\n| phone | User phone| yes | yes |\n\n### Request example\n```\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:examples:helloservice\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:createUser soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      \t<document xsi:type=\"xsd:string\">272431855</document>\n        <name xsi:type=\"xsd:string\">User</name>\n        <lastName xsi:type=\"xsd:string\">LUser</lastName>\n        <email xsi:type=\"xsd:string\">user@example.com</email>\n        <phone xsi:type=\"xsd:string\">5435345</phone>\n        <auth_token xsi:type=\"xsd:string\">602d2391f57de22624a18ec83d478b70</auth_token>\n      </urn:createUser>\n   </soapenv:Body>\n</soapenv:Envelope>\n```\n\n### Response example\n```\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"  xmlns:tns=\"http://www.examples.com/wsdl/UserService.wsdl\">\n    <soap:Body>\n        <tns:createUserResponse>\n            <tns:user>\n                <id>5f0793812319af94156a3bde</id>\n                <document>272431855</document>\n                <name>User</name>\n                <lastName>LUser</lastName>\n                <email>user@example.com</email>\n                <phone>5435345</phone>\n            </tns:user>\n            <tns:message>done</tns:message>\n        </tns:createUserResponse>\n    </soap:Body>\n</soap:Envelope>\n```"
+							},
+							"response": []
+						},
+						{
+							"name": "rechargeWallet",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:examples:helloservice\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:rechargeWallet soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      \t<document xsi:type=\"xsd:string\">27223185</document>\n        <phone xsi:type=\"xsd:string\">435345345</phone>\n        <value xsi:type=\"xsd:string\">500</value>\n        <auth_token xsi:type=\"xsd:string\">602d2391f57de22624a18ec83d478b70</auth_token>\n      </urn:rechargeWallet>\n   </soapenv:Body>\n</soapenv:Envelope>\n",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3002/soap/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3002",
+									"path": [
+										"soap",
+										"user"
+									]
+								},
+								"description": "### Headers\n\n| Name |  |\n| -------- | -------- |\n| Content-Type | text/xml |\n\n### Body Params\n\n| Attribute | Description | required? |\n| -------- | -------- | -------- |\n| document | User document | yes |\n| phone | User phone| yes | \n| value | Amount to charge | yes | \n\n### Request example\n```\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:examples:helloservice\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:rechargeWallet soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      \t<document xsi:type=\"xsd:string\">27223185</document>\n        <phone xsi:type=\"xsd:string\">435345345</phone>\n        <value xsi:type=\"xsd:string\">500</value>\n        <auth_token xsi:type=\"xsd:string\">602d2391f57de22624a18ec83d478b70</auth_token>\n      </urn:rechargeWallet>\n   </soapenv:Body>\n</soapenv:Envelope>\n```\n\n### Response example\n```\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"  xmlns:tns=\"http://www.examples.com/wsdl/UserService.wsdl\">\n    <soap:Body>\n        <tns:rechargeWalletResponse>\n            <tns:balance>17000</tns:balance>\n            <tns:message>wallet recharged successfully</tns:message>\n        </tns:rechargeWalletResponse>\n    </soap:Body>\n</soap:Envelope>\n```"
+							},
+							"response": []
+						},
+						{
+							"name": "Consult Wallet",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:examples:helloservice\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:consultWallet soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      \t<document xsi:type=\"xsd:string\">27223185</document>\n        <phone xsi:type=\"xsd:string\">435345345</phone>\n        <auth_token xsi:type=\"xsd:string\">602d2391f57de22624a18ec83d478b70</auth_token>\n      </urn:consultWallet>\n   </soapenv:Body>\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3002/soap/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3002",
+									"path": [
+										"soap",
+										"user"
+									]
+								},
+								"description": "### Headers\n\n| Name |  |\n| -------- | -------- |\n| Content-Type | text/xml |\n\n### Query Params\n\n| Attribute | Description | required? |\n| -------- | -------- | -------- |\n| document | User document | yes |\n| phone | User phone| yes | \n\n### Request example\n```\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:examples:helloservice\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:consultWallet soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      \t<document xsi:type=\"xsd:string\">27223185</document>\n        <phone xsi:type=\"xsd:string\">12345</phone>\n        <auth_token xsi:type=\"xsd:string\">602d2391f57de22624a18ec83d478b70</auth_token>\n      </urn:consultWallet>\n   </soapenv:Body>\n</soapenv:Envelope>\n```\n\n### Response example\n```\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"  xmlns:tns=\"http://www.examples.com/wsdl/UserService.wsdl\">\n    <soap:Body>\n        <tns:consultWalletResponse>\n            <tns:balance>17000</tns:balance>\n            <tns:message>wallet balance retrieve successfully</tns:message>\n        </tns:consultWalletResponse>\n    </soap:Body>\n</soap:Envelope>\n```"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Transaction",
+					"item": [
+						{
+							"name": "Create Transaction",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:examples:transactionservice\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:createTransaction soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      \t<document xsi:type=\"xsd:string\">27223185</document>\n        <phone xsi:type=\"xsd:string\">435345345</phone>\n        <value xsi:type=\"xsd:string\">5000</value>\n        <auth_token xsi:type=\"xsd:string\">602d2391f57de22624a18ec83d478b70</auth_token>\n      </urn:createTransaction>\n   </soapenv:Body>\n</soapenv:Envelope>\n",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3002/soap/transaction",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3002",
+									"path": [
+										"soap",
+										"transaction"
+									]
+								},
+								"description": "### Headers\n\n| Name |  |\n| -------- | -------- |\n| Content-Type | text/xml|\n\n### Body Params\n\n| Attribute | Description | required? |\n| -------- | -------- | -------- |\n| document | User document | yes |\n| phone | User phone| yes | \n| value | Pay amount | yes | \n\n### Request example\n```\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:examples:transactionservice\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:createTransaction soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      \t<document xsi:type=\"xsd:string\">27223185</document>\n        <phone xsi:type=\"xsd:string\">435345345</phone>\n        <value xsi:type=\"xsd:string\">5000</value>\n        <auth_token xsi:type=\"xsd:string\">602d2391f57de22624a18ec83d478b70</auth_token>\n      </urn:createTransaction>\n   </soapenv:Body>\n</soapenv:Envelope>\n```\n\n### Response example\n```\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"  xmlns:tns=\"http://www.examples.com/wsdl/UserService.wsdl\">\n    <soap:Body>\n        <tns:createTransactionResponse>\n            <tns:session_id>eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjA3OTU4MDIzMTlhZjk0MTU2YTNiZGYiLCJ1c2VyIjoiNWYwNjNhZmY5NDhkOGZmNDMzMGRmMWY5IiwidmFsdWUiOjUwMDAsImlhdCI6MTU5NDMzMjU0NCwiZXhwIjoxNTk0MzM2MTQ0LCJhdWQiOiJlcGF5Y28iLCJpc3MiOiJlcGF5Y28ifQ.ZCWU4pV0Y5jYE2gtYASPEplETnVpBYOPkZpV6hMNMGTX3CgQBU7DzdvjgV7-bw9S9eqlypXKXVdT29qB36tHS_mrWOG14Yq1p-8jhbKcz1yssg3j9sgWNQY46Dq29U1KElMIpUjP8RjD6plW92KzgoMQQ4hupsJOliOEARXm6aGFy_MfPCkWLUkeY6W-j3crroNDKpiMgurENccsM1mbrMFRLPdQVbIPU7E3Lo9MbeESsoQvdJxzWAHXT4anT2mGf4sgCl5V0BkAJUWUbFjXfuwVXzlAkn_45ODZc3w7u83AOWW30hzTzdIPOSQYlmOpTslQ-34DIhfP-p19qtM7ZwC4AXDhu00f-jSKNJ1neJRMc7M4WipTw66QkYp_f9b82NBTuxx81fnICGgpnnTACUBOkkDncOulO0Sg66SDHkRvjr1CDDWZ-38PwV0EtQ2UsfKaVPrwXL3ikUOnFAk2DDy19XVdnUy6RWGsOVBDbP75hJ3Kzj7zX4mdpLYOtLNJfgiVvUhxOjU7a9NwItYnUkeRvjgBFc_F2PV-dBPviWYrh4B5iunxcoiRAk2IR4-3Bs-AHRh1P6bIeybFsF9rJwXR3JeL-HxGXVL1QRGUvL_Rq5MS6lWz9ELH3b0reScOTCI5g_cOned9BnXCeaRVffRUamZB5nGhvgJKGXh4jNQ</tns:session_id>\n            <tns:message>Confirmation token sended to your email</tns:message>\n        </tns:createTransactionResponse>\n    </soap:Body>\n</soap:Envelope>\n```"
+							},
+							"response": []
+						},
+						{
+							"name": "Confirm Transaction",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:examples:transactionservice\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:confirmTransaction soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      \t<session_id xsi:type=\"xsd:string\">eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjA3OTU4MDIzMTlhZjk0MTU2YTNiZGYiLCJ1c2VyIjoiNWYwNjNhZmY5NDhkOGZmNDMzMGRmMWY5IiwidmFsdWUiOjUwMDAsImlhdCI6MTU5NDMzMjU0NCwiZXhwIjoxNTk0MzM2MTQ0LCJhdWQiOiJlcGF5Y28iLCJpc3MiOiJlcGF5Y28ifQ.ZCWU4pV0Y5jYE2gtYASPEplETnVpBYOPkZpV6hMNMGTX3CgQBU7DzdvjgV7-bw9S9eqlypXKXVdT29qB36tHS_mrWOG14Yq1p-8jhbKcz1yssg3j9sgWNQY46Dq29U1KElMIpUjP8RjD6plW92KzgoMQQ4hupsJOliOEARXm6aGFy_MfPCkWLUkeY6W-j3crroNDKpiMgurENccsM1mbrMFRLPdQVbIPU7E3Lo9MbeESsoQvdJxzWAHXT4anT2mGf4sgCl5V0BkAJUWUbFjXfuwVXzlAkn_45ODZc3w7u83AOWW30hzTzdIPOSQYlmOpTslQ-34DIhfP-p19qtM7ZwC4AXDhu00f-jSKNJ1neJRMc7M4WipTw66QkYp_f9b82NBTuxx81fnICGgpnnTACUBOkkDncOulO0Sg66SDHkRvjr1CDDWZ-38PwV0EtQ2UsfKaVPrwXL3ikUOnFAk2DDy19XVdnUy6RWGsOVBDbP75hJ3Kzj7zX4mdpLYOtLNJfgiVvUhxOjU7a9NwItYnUkeRvjgBFc_F2PV-dBPviWYrh4B5iunxcoiRAk2IR4-3Bs-AHRh1P6bIeybFsF9rJwXR3JeL-HxGXVL1QRGUvL_Rq5MS6lWz9ELH3b0reScOTCI5g_cOned9BnXCeaRVffRUamZB5nGhvgJKGXh4jNQ</session_id>\n        <token xsi:type=\"xsd:string\">c12c51</token>\n        <auth_token xsi:type=\"xsd:string\">602d2391f57de22624a18ec83d478b70</auth_token>\n      </urn:confirmTransaction>\n   </soapenv:Body>\n</soapenv:Envelope>\n",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3002/soap/transaction",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3002",
+									"path": [
+										"soap",
+										"transaction"
+									]
+								},
+								"description": "### Headers\n\n| Name |  |\n| -------- | -------- |\n| Content-Type | text/xml |\n\n### Headers\n\n| Name | Description | required? |\n| -------- | -------- | -------- |\n| Authorization | Session_id as bearer token | yes |\n\n\n### Body Params\n\n| Attribute | Description | required? |\n| -------- | -------- | -------- |\n| token | Confirmation token | yes |\n\n### Request example\n```\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:examples:transactionservice\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:confirmTransaction soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      \t<session_id xsi:type=\"xsd:string\">eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjA3OTU4MDIzMTlhZjk0MTU2YTNiZGYiLCJ1c2VyIjoiNWYwNjNhZmY5NDhkOGZmNDMzMGRmMWY5IiwidmFsdWUiOjUwMDAsImlhdCI6MTU5NDMzMjU0NCwiZXhwIjoxNTk0MzM2MTQ0LCJhdWQiOiJlcGF5Y28iLCJpc3MiOiJlcGF5Y28ifQ.ZCWU4pV0Y5jYE2gtYASPEplETnVpBYOPkZpV6hMNMGTX3CgQBU7DzdvjgV7-bw9S9eqlypXKXVdT29qB36tHS_mrWOG14Yq1p-8jhbKcz1yssg3j9sgWNQY46Dq29U1KElMIpUjP8RjD6plW92KzgoMQQ4hupsJOliOEARXm6aGFy_MfPCkWLUkeY6W-j3crroNDKpiMgurENccsM1mbrMFRLPdQVbIPU7E3Lo9MbeESsoQvdJxzWAHXT4anT2mGf4sgCl5V0BkAJUWUbFjXfuwVXzlAkn_45ODZc3w7u83AOWW30hzTzdIPOSQYlmOpTslQ-34DIhfP-p19qtM7ZwC4AXDhu00f-jSKNJ1neJRMc7M4WipTw66QkYp_f9b82NBTuxx81fnICGgpnnTACUBOkkDncOulO0Sg66SDHkRvjr1CDDWZ-38PwV0EtQ2UsfKaVPrwXL3ikUOnFAk2DDy19XVdnUy6RWGsOVBDbP75hJ3Kzj7zX4mdpLYOtLNJfgiVvUhxOjU7a9NwItYnUkeRvjgBFc_F2PV-dBPviWYrh4B5iunxcoiRAk2IR4-3Bs-AHRh1P6bIeybFsF9rJwXR3JeL-HxGXVL1QRGUvL_Rq5MS6lWz9ELH3b0reScOTCI5g_cOned9BnXCeaRVffRUamZB5nGhvgJKGXh4jNQ</session_id>\n        <token xsi:type=\"xsd:string\">c12c51</token>\n        <auth_token xsi:type=\"xsd:string\">602d2391f57de22624a18ec83d478b70</auth_token>\n      </urn:confirmTransaction>\n   </soapenv:Body>\n</soapenv:Envelope>\n\n```\n\n### Response example\n```\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"  xmlns:tns=\"http://www.examples.com/wsdl/UserService.wsdl\">\n    <soap:Body>\n        <tns:confirmTransactionResponse>\n            <tns:message>Transaction confirmed</tns:message>\n        </tns:confirmTransactionResponse>\n    </soap:Body>\n</soap:Envelope>\n```"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "rest",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Create User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"document\": \"1234545345\",\n\t\"name\": \"User\",\n\t\"lastName\": \"User\",\n\t\"email\": \"User@gmail.com\",\n\t\"phone\": \"342555645\"\n}\t",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"user"
+									]
+								},
+								"description": "### Headers\n\n| Name |  |\n| -------- | -------- |\n| Content-Type | application/json |\n\n### Body Params\n\n| Attribute | Description | required? | unique? |\n| -------- | -------- | -------- |  -------- |\n| document | User document | yes | yes |\n| name | User First Name | yes | no |\n| lastName | User LastName | yes | no |\n| email | User email | yes | yes |\n| phone | User phone| yes | yes |\n\n### Response example\n```\n{\n    \"status\": \"success\",\n    \"message\": \"done\",\n    \"data\": {\n        \"id\": \"5f0791282319af94156a3bdd\",\n        \"document\": \"1234545345\",\n        \"name\": \"User\",\n        \"lastName\": \"User\",\n        \"email\": \"User@gmail.com\",\n        \"phone\": \"342555645\"\n    }\n}\n```"
+							},
+							"response": []
+						},
+						{
+							"name": "Rechage Wallet",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"document\": \"27223185\",\n\t\"phone\": \"435345345\",\n\t\"value\": 10000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/user/wallet",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"user",
+										"wallet"
+									]
+								},
+								"description": "### Headers\n\n| Name |  |\n| -------- | -------- |\n| Content-Type | application/json |\n\n### Body Params\n\n| Attribute | Description | required? |\n| -------- | -------- | -------- |\n| document | User document | yes |\n| phone | User phone| yes | \n| value | Amount to charge | yes | \n\n### Response example\n```\n{\n    \"status\": \"success\",\n    \"message\": \"wallet recharged successfully\",\n    \"data\": {\n        \"balance\": 22500\n    }\n}\n```"
+							},
+							"response": []
+						},
+						{
+							"name": "Consult Wallet",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/api/user/wallet?document=27223185&phone=435345345",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"user",
+										"wallet"
+									],
+									"query": [
+										{
+											"key": "document",
+											"value": "27223185"
+										},
+										{
+											"key": "phone",
+											"value": "435345345"
+										}
+									]
+								},
+								"description": "### Headers\n\n| Name |  |\n| -------- | -------- |\n| Content-Type | application/json |\n\n### Query Params\n\n| Attribute | Description | required? |\n| -------- | -------- | -------- |\n| document | User document | yes |\n| phone | User phone| yes | \n\n### Response example\n```\n{\n    \"status\": \"success\",\n    \"message\": \"wallet balance retrieve successfully\",\n    \"data\": {\n        \"balance\": 20000\n    }\n}\n```"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "transaction",
+					"item": [
+						{
+							"name": "Create transaction",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"document\": \"27223185\",\n\t\"phone\": \"435345345\",\n\t\"value\": 10000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/transaction",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"transaction"
+									]
+								},
+								"description": "### Headers\n\n| Name |  |\n| -------- | -------- |\n| Content-Type | application/json |\n\n### Body Params\n\n| Attribute | Description | required? |\n| -------- | -------- | -------- |\n| document | User document | yes |\n| phone | User phone| yes | \n| value | Pay amount | yes | \n\n### Response example\n```\n{\n    \"status\": \"success\",\n    \"message\": \"Confirmation token sended to your email\",\n    \"data\": {\n        \"session_id\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjA3OGVkZjkzZDJjMTkyY2ZmNzFmNjYiLCJ1c2VyIjoiNWYwNjNhZmY5NDhkOGZmNDMzMGRmMWY5IiwidmFsdWUiOjEwMDAwLCJpYXQiOjE1OTQzMzA4NDcsImV4cCI6MTU5NDMzNDQ0NywiYXVkIjoiZXBheWNvIiwiaXNzIjoiZXBheWNvIn0.UMIyL_VTvrA-I_SeQDI9VbwubNwnsLRkJrhyHR6o0aWva0jNswrS746JdAf4cOqHditRRCan4UXof8Yy5coN1Q22kUAotmfZWpQWAKx43kPxNGx815to_20IaqTtZIJvqI6auc5X79DS4_9jDQbXBTp2iiFQeg6xIVMkSy5DsI3GC30sZ80Ol_dxOHQUAVkZhU49RQXusmDGpKw4JvL6COcXrzK3WDAGPr5XEF03RgrBmgdPu8HQxPzfkhJwWR2mh8zNP-SJIxKEjRIo8Gn1cao4tGfvCtMzasb6Q__UhrJMIWx9dU_wB6wCRtD-RKzEWDeN58irKDA2r7G-f1T2gk-oAY0WyxWLD1ZSXCqONyOc6TwRStSQlJa8yVtS34YW593cxCck-RZOmkVqDKhtt7eg-b-3mmhVr21bXoT1O9hUbcL5YUqQBBfcrC07cz_MTQOrv-3DebXpFsgfkVG5zIlNpnETRBp0gIkwDSb375KBMNtKOcz0Ow3ao3mXM6-GlmgDCbVRjBclDEmNMZZVzcNE6tTKfT9HtUKz7SFPlAIyg2RXDMpRuSua3zlTvyEWcn5rwgQlFDJ-1Hqr3aACH0us_8Gja75kpD4iOzqLG1noUqsujtciwwe8MhtFeznKoZbG6BgZ-PbSmdxawbDig-J9MOriq5-0w6wWpPkqtyw\"\n    }\n}\n```"
+							},
+							"response": []
+						},
+						{
+							"name": "Confirm Transaction",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjA3ODBiMzRjOGI2NzUyNjliYmQxOTgiLCJ1c2VyIjoiNWYwNjNhZmY5NDhkOGZmNDMzMGRmMWY5IiwidmFsdWUiOjUwMCwiaWF0IjoxNTk0MzI3MjE5LCJleHAiOjE1OTQzMzA4MTksImF1ZCI6ImVwYXljbyIsImlzcyI6ImVwYXljbyJ9.W0JRtAAMrFeG1V99I4Ac9uxy8pdKlVecztjlBlcbUd90m6CAt_TgKPYajeJv9Fqe_xvDMA2GJN9BAjSBmEZQavZvO_MNdKGxqrRuw8MISO4eHPAQ9_0ySDT7CFTb_DukEVHunp_4NpCFeYxAoiKEPXw7aeBD-7ICEiaT0_X2q7H9r389VDgZFhjZcRRgkVb_tpDLeOXHLMLUIXZCV7HGcunzJwdSUcEKnishP5Jem2kuPg90LGjPfMbqHY4qhJEVqNEA3rbXGwVA3aYclgskxGYzl4OQy4WFCA0lEsmzWSfEgIyHrfhQoBRllq1x8H6xO0_BkhmG-bKsGErgq3MmNATg-sk9XBpnmCbfQQKwXDDOyAwMielBs6mUBo3bXXSklbrICuf60gOKHO8RAd0Fb1TfvCpwOnbb5Ayq9eaqvpoCzvdMthTNd3jnzL9vIDZjqlLnkP2L_OJYAXPT8iIwQTJ5uZEMZ5uUOKWqh5_gfx7_LMH6esifjyb-HoB-7Q5hnz-9ADzSuImy5nU9yp-MdE1sZLnZtbFfWKL_6HfGEOzIECFgT0_o_9E83OGUeqoWCb9kBwI0rnpWh2GkCV5W8bF3QDywN3xH6WAgjvd3Fg8poEnhFdpWpVfr1Ht1b1ii-SnM_YJRFxFIOXK2x44gwK6B0_U3LMzSM4hdg4boDbw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"token\": \"c335d3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/transaction/confirm",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"transaction",
+										"confirm"
+									]
+								},
+								"description": "### Headers\n\n| Name |  |\n| -------- | -------- |\n| Content-Type | application/json |\n\n### Headers\n\n| Name | Description | required? |\n| -------- | -------- | -------- |\n| Authorization | Session_id as bearer token | yes |\n\n\n### Body Params\n\n| Attribute | Description | required? |\n| -------- | -------- | -------- |\n| token | Confirmation token | yes |\n\n### Response example\n```\n{\n    \"status\": \"success\",\n    \"message\": \"Transaction confirmed\",\n    \"data\": {\n        \"message\": \"Transaction confirmed\"\n    }\n}\n```"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
