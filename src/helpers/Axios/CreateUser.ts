@@ -8,7 +8,7 @@ export const createUserAxiosCall = async (user: IUser) => {
     <soapenv:Header/>
     <soapenv:Body>
        <urn:createUser soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-        <document xsi:type="xsd:string">27223185</document>
+        <document xsi:type="xsd:string">${user.document}</document>
          <name xsi:type="xsd:string">${user.name}</name>
          <lastName xsi:type="xsd:string">${user.lastName}</lastName>
          <email xsi:type="xsd:string">${user.email}</email>
@@ -19,7 +19,7 @@ export const createUserAxiosCall = async (user: IUser) => {
  </soapenv:Envelope>
  `;
   try {
-    const data = await axios.post("http://localhost:3000/soap/user", xmls, {
+    const data = await axios.post(`${process.env.SOAP_URL}/user`, xmls, {
       headers: { "Content-Type": "text/xml" },
     });
     var options = {compact: true, ignoreComment: true, spaces: 4};

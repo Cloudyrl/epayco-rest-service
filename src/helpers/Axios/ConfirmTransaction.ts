@@ -15,7 +15,7 @@ export const confirmTransactionAxiosCall = async (session_id: string, token: str
  </soapenv:Envelope> 
  `;
     try {
-      const data = await axios.post("http://localhost:3000/soap/transaction", xmls, {
+      const data = await axios.post(`${process.env.SOAP_URL}/transaction`, xmls, {
         headers: { "Content-Type": "text/xml" },
       });
       var options = { compact: true, ignoreComment: true, spaces: 4 };

@@ -15,7 +15,7 @@ export const consultWalletAxiosCall = async (user: IUser) => {
   </soapenv:Body>
 </soapenv:Envelope>`;
   try {
-    const data = await axios.post("http://localhost:3000/soap/user", xmls, {
+    const data = await axios.post(`${process.env.SOAP_URL}/user`, xmls, {
       headers: { "Content-Type": "text/xml" },
     });
     var options = { compact: true, ignoreComment: true, spaces: 4 };
